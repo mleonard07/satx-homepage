@@ -4,6 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Community Impact — San Antonio</title>
+<script>window.broadstreet = window.broadstreet || { run: [] };</script>
+<script src="https://cdn.broadstreetads.com/init-2.min.js" async></script>
+<script src="https://api.communityimpact.com/v1/broadstreet.js" async></script>
+<script>
+  window.broadstreet.run.push(function() {
+    broadstreet.loadNetworkJS(9296);
+  });
+</script>
 <style>
 @font-face {
   font-family: 'Guardian Sans Web';
@@ -756,10 +764,7 @@ img { display: block; max-width: 100%; }
 
 <!-- Leaderboard Ad — below nav -->
 <div class="ad-strip">
-  <div class="ad-slot ad-leaderboard">
-    <span class="ad-slot-label">Advertisement</span>
-    <span class="ad-slot-size">728 × 90</span>
-  </div>
+  <broadstreet-zone zone-id="166336" zone-alias="SATX_Metro_leaderboard"></broadstreet-zone>
 </div>
 
 <!-- Page Body -->
@@ -925,18 +930,14 @@ img { display: block; max-width: 100%; }
   </div>
 
     </div><!-- /flex:1 -->
-    <div class="ad-slot ad-mrec" style="margin-top:88px;">
-      <span class="ad-slot-label">Advertisement</span>
-      <span class="ad-slot-size">300 × 250</span>
+    <div style="margin-top:88px;">
+      <broadstreet-zone zone-id="166337" zone-alias="SATX_Metro_medrectangle"></broadstreet-zone>
     </div>
   </div><!-- /ad-inline-wrap -->
 
   <!-- Ad: Leaderboard between Business and Civic -->
   <div style="display:flex; justify-content:center; padding: 8px 0 0;">
-    <div class="ad-slot ad-leaderboard">
-      <span class="ad-slot-label">Advertisement</span>
-      <span class="ad-slot-size">728 × 90</span>
-    </div>
+    <broadstreet-zone zone-id="169872"></broadstreet-zone>
   </div>
 
   <!-- Civic Updates -->
