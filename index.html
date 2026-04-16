@@ -176,7 +176,21 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid var(--border);
   padding: 48px 32px 40px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+.page-header-map {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 340px;
+  width: auto;
+  opacity: 0.055;
+  pointer-events: none;
+  user-select: none;
+}
+.page-header > * { position: relative; z-index: 1; }
 .page-header-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -817,7 +831,7 @@ img { display: block; max-width: 100%; }
 
 /* ── Newsletter CTA ── */
 .newsletter-band {
-  background: var(--dark);
+  background: #f0f0f0;
   border-radius: 12px;
   padding: 40px 44px;
   display: flex;
@@ -837,30 +851,30 @@ img { display: block; max-width: 100%; }
 .nl-headline {
   font-size: 22px;
   font-weight: 700;
-  color: #fff;
+  color: var(--dark);
   letter-spacing: -.02em;
   margin-bottom: 4px;
 }
 .nl-sub {
   font-size: 13.5px;
-  color: rgba(255,255,255,.5);
+  color: var(--muted);
   font-weight: 400;
 }
 .nl-form { display: flex; gap: 8px; flex-shrink: 0; }
 .nl-input {
   padding: 10px 16px;
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid #d0d0d0;
   border-radius: 6px;
-  background: rgba(255,255,255,.07);
-  color: #fff;
+  background: #fff;
+  color: var(--dark);
   font-size: 13.5px;
   font-family: 'Guardian Sans Web', sans-serif;
   width: 220px;
   outline: none;
   transition: border-color .15s;
 }
-.nl-input::placeholder { color: rgba(255,255,255,.3); }
-.nl-input:focus { border-color: rgba(255,255,255,.35); }
+.nl-input::placeholder { color: var(--subtle); }
+.nl-input:focus { border-color: var(--muted); }
 .nl-btn {
   padding: 10px 20px;
   background: var(--red);
@@ -999,12 +1013,13 @@ img { display: block; max-width: 100%; }
 
 <!-- Page Header -->
 <div class="page-header">
+  <img src="satx-map.png" class="page-header-map" alt="" aria-hidden="true" />
   <div class="page-header-eyebrow">
     <span class="dot"></span>
     San Antonio, TX
     <span class="dot"></span>
   </div>
-  <h1 class="page-header-title">Your <em>local</em> source</h1>
+  <h1 class="page-header-title">Community Impact — <em>San Antonio Metro</em></h1>
   <p class="page-header-sub">Real estate, business updates, and civic news — updated daily.</p>
   <div class="page-header-meta">
     <span id="header-date"></span>
