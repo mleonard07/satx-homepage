@@ -171,65 +171,47 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── Page Header ── */
-.page-header {
+.page-header-wrap {
   background: var(--white);
   border-bottom: 1px solid var(--border);
-  padding: 48px 32px 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+}
+.page-header {
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .page-header-map {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 340px;
+  height: 160px;
   width: auto;
-  opacity: 0.055;
+  opacity: 0.18;
+  flex-shrink: 0;
   pointer-events: none;
   user-select: none;
 }
-.page-header > * { position: relative; z-index: 1; }
-.page-header-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--red-faint);
-  color: var(--red);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  padding: 5px 14px;
-  border-radius: 999px;
-  margin-bottom: 18px;
-}
-.page-header-eyebrow .dot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--red);
-  opacity: .5;
+.page-header-text {
+  flex: 1;
 }
 .page-header-title {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--dark);
-  letter-spacing: -.04em;
-  line-height: 1.05;
-  margin-bottom: 12px;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 8px;
 }
 .page-header-title em {
   font-style: normal;
   color: var(--red);
 }
 .page-header-sub {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--muted);
   font-weight: 400;
-  max-width: 420px;
-  margin: 0 auto 20px;
   line-height: 1.55;
+  margin-bottom: 10px;
 }
 .page-header-meta {
   font-size: 11.5px;
@@ -531,12 +513,12 @@ img { display: block; max-width: 100%; }
   border-radius: 4px;
   align-self: flex-start;
 }
-.biz-new     { background: var(--green-faint);  color: var(--green); }
-.biz-expand  { background: var(--blue-faint);   color: var(--blue); }
-.biz-jobs    { background: var(--gold-faint);   color: var(--gold); }
-.biz-closing { background: var(--red-faint);    color: var(--red); }
-.biz-dev     { background: var(--purple-faint); color: var(--purple); }
-.biz-funding { background: var(--gold-faint);   color: var(--gold); }
+.biz-new,
+.biz-expand,
+.biz-jobs,
+.biz-closing,
+.biz-dev,
+.biz-funding { background: var(--red-faint); color: var(--red); }
 .biz-headline {
   font-size: 14.5px;
   font-weight: 700;
@@ -736,11 +718,16 @@ img { display: block; max-width: 100%; }
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 40px;
-  align-items: start;
+  align-items: stretch;
+}
+.state-featured {
+  display: flex;
+  flex-direction: column;
 }
 .state-featured-photo {
   position: relative;
-  height: 140px;
+  flex: 1;
+  min-height: 160px;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 16px;
@@ -1012,20 +999,17 @@ img { display: block; max-width: 100%; }
 </nav>
 
 <!-- Page Header -->
+<div class="page-header-wrap">
 <div class="page-header">
   <img src="satx-map.png" class="page-header-map" alt="" aria-hidden="true" />
-  <div class="page-header-eyebrow">
-    <span class="dot"></span>
-    San Antonio, TX
-    <span class="dot"></span>
+  <div class="page-header-text">
+    <h1 class="page-header-title">Community Impact — <em>San Antonio Metro</em></h1>
+    <p class="page-header-sub">Real estate, business updates, and civic news — updated daily.</p>
+    <div class="page-header-meta">
+      <span id="header-date"></span>
+    </div>
   </div>
-  <h1 class="page-header-title">Community Impact — <em>San Antonio Metro</em></h1>
-  <p class="page-header-sub">Real estate, business updates, and civic news — updated daily.</p>
-  <div class="page-header-meta">
-    <span id="header-date"></span>
-    <span class="sep">·</span>
-    <span>Bexar County</span>
-  </div>
+</div>
 </div>
 
 <!-- Leaderboard — inset below nav -->
@@ -1052,6 +1036,14 @@ img { display: block; max-width: 100%; }
     <div class="business-grid" id="bizCarousel">
 
       <div class="business-card">
+        <span class="biz-badge biz-dev">Renovation</span>
+        <div class="biz-headline">Toyota SA begins $200M plant upgrade for EV Tundra production</div>
+        <div class="biz-blurb">The multi-year renovation will modernize two assembly lines and add 1,200 positions once complete in 2027.</div>
+        <div class="biz-address">📍 1 Toyota Way, South Side</div>
+        <div class="biz-time">8 hours ago</div>
+      </div>
+
+      <div class="business-card">
         <span class="biz-badge biz-new">Now Open</span>
         <div class="biz-headline">Whataburger opens flagship concept store near The Pearl</div>
         <div class="biz-blurb">The 4,200 sq ft experiential location features an expanded menu, full bar, and patio overlooking the Museum Reach.</div>
@@ -1068,11 +1060,11 @@ img { display: block; max-width: 100%; }
       </div>
 
       <div class="business-card">
-        <span class="biz-badge biz-dev">Renovation</span>
-        <div class="biz-headline">Toyota SA begins $200M plant upgrade for EV Tundra production</div>
-        <div class="biz-blurb">The multi-year renovation will modernize two assembly lines and add 1,200 positions once complete in 2027.</div>
-        <div class="biz-address">📍 1 Toyota Way, South Side</div>
-        <div class="biz-time">8 hours ago</div>
+        <span class="biz-badge biz-closing">Closing</span>
+        <div class="biz-headline">Denny's closes three San Antonio locations after lease expirations</div>
+        <div class="biz-blurb">The closures affect locations on Broadway, Loop 410, and Bandera Road. The company cited rising occupancy costs.</div>
+        <div class="biz-address">📍 5323 Broadway St</div>
+        <div class="biz-time">4 days ago</div>
       </div>
 
       <div class="business-card">
@@ -1089,14 +1081,6 @@ img { display: block; max-width: 100%; }
         <div class="biz-blurb">A 22-vendor food hall will anchor Phase 1 of the long-stalled Lone Star Brewery site, with a projected 2028 opening.</div>
         <div class="biz-address">📍 514 Lone Star Blvd, Southtown</div>
         <div class="biz-time">1 week ago</div>
-      </div>
-
-      <div class="business-card">
-        <span class="biz-badge biz-closing">Closing</span>
-        <div class="biz-headline">Denny's closes three San Antonio locations after lease expirations</div>
-        <div class="biz-blurb">The closures affect locations on Broadway, Loop 410, and Bandera Road. The company cited rising occupancy costs.</div>
-        <div class="biz-address">📍 5323 Broadway St</div>
-        <div class="biz-time">4 days ago</div>
       </div>
 
     </div>
@@ -1470,7 +1454,6 @@ img { display: block; max-width: 100%; }
         <span class="state-photo-badge">Legislature</span>
       </div>
       <span class="state-topic">Government</span>
-      <div class="state-location">Austin · Texas Legislature</div>
       <div class="state-featured-headline">Texas House passes property tax relief package in 88–55 vote</div>
       <div class="state-featured-blurb">The bill would raise the homestead exemption from $100K to $140K and cap annual appraisal increases at 5% for primary residences. The measure now heads to the Senate, where leadership has signaled broad support.</div>
     </div>
@@ -1480,25 +1463,21 @@ img { display: block; max-width: 100%; }
 
       <div class="state-sidebar-item">
         <span class="state-topic">Transportation</span>
-        <div class="state-location">Austin · TxDOT</div>
         <div class="state-sidebar-headline">$4.2B I-35 expansion through Austin advances to final design phase</div>
       </div>
 
       <div class="state-sidebar-item">
         <span class="state-topic">Education</span>
-        <div class="state-location">Statewide</div>
         <div class="state-sidebar-headline">Gov. Abbott signs school choice legislation into law</div>
       </div>
 
       <div class="state-sidebar-item">
         <span class="state-topic">Business</span>
-        <div class="state-location">Statewide · Workforce</div>
         <div class="state-sidebar-headline">Texas added 38,000 jobs in March, led by healthcare and tech</div>
       </div>
 
       <div class="state-sidebar-item">
         <span class="state-topic">Government</span>
-        <div class="state-location">South Texas · Water</div>
         <div class="state-sidebar-headline">TWDB approves $1.1B in low-interest loans for South Texas water projects</div>
       </div>
 
