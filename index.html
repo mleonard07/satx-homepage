@@ -183,11 +183,17 @@ img { display: block; max-width: 100%; }
   max-width: 1200px;
   margin: 0 auto;
 }
-.page-header-map {
+.page-header-map-wrap {
+  flex-shrink: 0;
   height: 160px;
+  overflow: hidden;
+}
+.page-header-map {
+  height: 180px;
   width: auto;
   opacity: 0.18;
-  flex-shrink: 0;
+  display: block;
+  transform: translate(-6%, -5%) scale(1.12);
   pointer-events: none;
   user-select: none;
 }
@@ -220,7 +226,6 @@ img { display: block; max-width: 100%; }
   letter-spacing: .02em;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
 }
 .page-header-meta .sep { color: var(--border); }
@@ -1001,7 +1006,9 @@ img { display: block; max-width: 100%; }
 <!-- Page Header -->
 <div class="page-header-wrap">
 <div class="page-header">
-  <img src="satx-map.png" class="page-header-map" alt="" aria-hidden="true" />
+  <div class="page-header-map-wrap">
+    <img src="satx-map.png" class="page-header-map" alt="" aria-hidden="true" />
+  </div>
   <div class="page-header-text">
     <h1 class="page-header-title">Community Impact — <em>San Antonio Metro</em></h1>
     <p class="page-header-sub">Real estate, business updates, and civic news — updated daily.</p>
@@ -1091,8 +1098,8 @@ img { display: block; max-width: 100%; }
   </div>
 
   <!-- Ad: Leaderboard between Business and Civic -->
-  <div style="display:flex; justify-content:center; padding: 8px 0 0;">
-    <broadstreet-zone zone-id="169872"></broadstreet-zone>
+  <div class="ad-strip">
+    <broadstreet-zone zone-id="166336" zone-alias="SATX_Metro_leaderboard"></broadstreet-zone>
   </div>
 
   <!-- Civic Updates -->
