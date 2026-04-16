@@ -162,33 +162,52 @@ img { display: block; max-width: 100%; }
   font-family: 'Guardian Sans Web', sans-serif;
 }
 
-/* ── Section Nav ── */
-.section-nav {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 0 32px;
+/* ── Ad Slots ── */
+.ad-slot {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.section-nav::-webkit-scrollbar { display: none; }
-.section-link {
-  font-size: 11px;
-  font-weight: 700;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px dashed #D1D5DB;
+  border-radius: 6px;
+  color: var(--subtle);
+  font-size: 10.5px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--muted);
-  padding: 11px 14px;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: color .12s, border-color .12s;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  gap: 4px;
 }
-.section-link:hover { color: var(--dark); }
-.section-link.active { color: var(--red); border-bottom-color: var(--red); font-weight: 700; }
+.ad-slot-label { opacity: .6; }
+.ad-slot-size { font-size: 11px; font-weight: 700; color: var(--muted); opacity: .5; }
+
+/* Leaderboard: 728×90 centered */
+.ad-leaderboard {
+  width: 100%;
+  max-width: 728px;
+  height: 90px;
+  margin: 0 auto;
+}
+/* Full-width leaderboard strip */
+.ad-strip {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+}
+/* Medium rectangle: 300×250, inline-right */
+.ad-inline-wrap {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.ad-mrec {
+  width: 300px;
+  height: 250px;
+  flex-shrink: 0;
+}
 
 /* ── Page Body ── */
 .page-body { max-width: 1200px; margin: 0 auto; padding: 0 32px 96px; }
@@ -660,17 +679,13 @@ img { display: block; max-width: 100%; }
   </div>
 </nav>
 
-<!-- Section Nav -->
-<nav class="section-nav">
-  <a href="#" class="section-link active">Government</a>
-  <a href="#" class="section-link">Education</a>
-  <a href="#" class="section-link">Business</a>
-  <a href="#" class="section-link">Real Estate</a>
-  <a href="#" class="section-link">Transportation</a>
-  <a href="#" class="section-link">Healthcare</a>
-  <a href="#" class="section-link">Impacts Map</a>
-  <a href="#" class="section-link">E-Editions</a>
-</nav>
+<!-- Leaderboard Ad — below nav -->
+<div class="ad-strip">
+  <div class="ad-slot ad-leaderboard">
+    <span class="ad-slot-label">Advertisement</span>
+    <span class="ad-slot-size">728 × 90</span>
+  </div>
+</div>
 
 <!-- Page Body -->
 <div class="page-body">
@@ -776,7 +791,10 @@ img { display: block; max-width: 100%; }
 
   </div>
 
-  <!-- Business Updates -->
+  <!-- Ad: Medium Rectangle, floated right alongside section label -->
+  <div class="ad-inline-wrap">
+    <div style="flex:1;">
+      <!-- Business Updates -->
   <div class="section-label">
     <div class="section-label-left">
       <div class="section-eyebrow">San Antonio Metro</div>
@@ -829,6 +847,21 @@ img { display: block; max-width: 100%; }
       <div class="biz-time">4 days ago</div>
     </div>
 
+  </div>
+
+    </div><!-- /flex:1 -->
+    <div class="ad-slot ad-mrec" style="margin-top:88px;">
+      <span class="ad-slot-label">Advertisement</span>
+      <span class="ad-slot-size">300 × 250</span>
+    </div>
+  </div><!-- /ad-inline-wrap -->
+
+  <!-- Ad: Leaderboard between Business and Civic -->
+  <div style="display:flex; justify-content:center; padding: 8px 0 0;">
+    <div class="ad-slot ad-leaderboard">
+      <span class="ad-slot-label">Advertisement</span>
+      <span class="ad-slot-size">728 × 90</span>
+    </div>
   </div>
 
   <!-- Civic Updates -->
