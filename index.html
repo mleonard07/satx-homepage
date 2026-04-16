@@ -256,23 +256,6 @@ img { display: block; max-width: 100%; }
   max-width: 1200px;
   margin: 0 auto;
 }
-/* Inline ad beside content */
-.ad-inline-wrap {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-}
-.ad-side {
-  width: 200px;
-  flex-shrink: 0;
-  margin-top: 88px;
-}
-/* Centered mid-page ad */
-.ad-mid {
-  display: flex;
-  justify-content: center;
-  padding: 4px 0;
-}
 
 /* ── Page Body ── */
 .page-body { max-width: 1200px; margin: 0 auto; padding: 0 32px 96px; }
@@ -769,7 +752,7 @@ img { display: block; max-width: 100%; }
 <div class="page-body">
 
   <!-- Ad: below header, above real estate -->
-  <div class="ad-mid" style="padding-top:28px;">
+  <div class="ad-strip">
     <broadstreet-zone zone-id="174907"></broadstreet-zone>
   </div>
 
@@ -874,10 +857,13 @@ img { display: block; max-width: 100%; }
 
   </div>
 
-  <!-- Ad: Medium Rectangle, floated right alongside section label -->
-  <div class="ad-inline-wrap">
-    <div style="flex:1;">
-      <!-- Business Updates -->
+  <div>
+      <!-- Ad: between real estate and business -->
+  <div class="ad-strip">
+    <broadstreet-zone zone-id="187240"></broadstreet-zone>
+  </div>
+
+  <!-- Business Updates -->
   <div class="section-label">
     <div class="section-label-left">
       <div class="section-eyebrow">San Antonio Metro</div>
@@ -933,10 +919,7 @@ img { display: block; max-width: 100%; }
   </div>
 
     </div><!-- /flex:1 -->
-    <div class="ad-side">
-      <broadstreet-zone zone-id="166337" zone-alias="SATX_Metro_medrectangle"></broadstreet-zone>
-    </div>
-  </div><!-- /ad-inline-wrap -->
+  </div>
 
   <!-- Ad: Leaderboard between Business and Civic -->
   <div style="display:flex; justify-content:center; padding: 8px 0 0;">
@@ -1079,8 +1062,8 @@ img { display: block; max-width: 100%; }
 
   </div>
 
-  <!-- Ad: above newsletter -->
-  <div class="ad-mid" style="padding-top:8px;">
+  <!-- Ad: between civic and newsletter -->
+  <div class="ad-strip">
     <broadstreet-zone zone-id="172073"></broadstreet-zone>
   </div>
 
