@@ -260,45 +260,59 @@ img { display: block; max-width: 100%; }
 /* ── Page Body ── */
 .page-body { max-width: 1200px; margin: 0 auto; padding: 0 32px 96px; }
 
-/* ── Section Label ── */
+/* ── Section Header ── */
 .section-label {
+  margin: 40px 0 24px;
+}
+.section-label-band {
+  background: var(--dark);
+  border-radius: 8px;
+  padding: 16px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 0 18px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 24px;
+  gap: 16px;
 }
 .section-label-left {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  gap: 14px;
 }
+.section-accent {
+  width: 4px;
+  height: 36px;
+  background: var(--red);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.section-text {}
 .section-eyebrow {
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--red);
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 2px;
 }
 .section-heading {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
-  color: var(--dark);
+  color: #fff;
   letter-spacing: -.02em;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 .section-view-all {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  color: var(--muted);
+  color: rgba(255,255,255,.5);
   display: flex;
   align-items: center;
   gap: 4px;
   transition: color .12s;
-  letter-spacing: .01em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.section-view-all:hover { color: var(--dark); }
+.section-view-all:hover { color: #fff; }
 
 /* ── Real Estate Stats ── */
 .re-stats {
@@ -454,6 +468,79 @@ img { display: block; max-width: 100%; }
   font-weight: 500;
   padding-top: 8px;
   border-top: 1px solid var(--border-light);
+}
+
+/* ── Events ── */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.event-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .2s;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.event-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,.07);
+  transform: translateY(-1px);
+}
+.event-date-block {
+  flex-shrink: 0;
+  width: 48px;
+  text-align: center;
+  background: var(--red-faint);
+  border-radius: 8px;
+  padding: 8px 4px;
+}
+.event-date-month {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--red);
+}
+.event-date-day {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+.event-body { flex: 1; min-width: 0; }
+.event-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+.event-festival  { background: var(--gold-faint);   color: var(--gold); }
+.event-market    { background: var(--green-faint);  color: var(--green); }
+.event-civic     { background: var(--blue-faint);   color: var(--blue); }
+.event-arts      { background: var(--purple-faint); color: var(--purple); }
+.event-sports    { background: var(--red-faint);    color: var(--red); }
+.event-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.35;
+  letter-spacing: -.01em;
+  margin-bottom: 4px;
+}
+.event-location {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
 }
 
 /* ── Civic Tiles ── */
@@ -665,6 +752,9 @@ img { display: block; max-width: 100%; }
   .re-stats { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
+@media (max-width: 1024px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
   .main-nav { grid-template-columns: auto 1fr; padding: 0 20px; }
   .nav-center { display: none; }
@@ -758,11 +848,16 @@ img { display: block; max-width: 100%; }
 
   <!-- Real Estate -->
   <div class="section-label">
-    <div class="section-label-left">
-      <div class="section-eyebrow">San Antonio Metro</div>
-      <div class="section-heading">Real Estate Market</div>
+    <div class="section-label-band">
+      <div class="section-label-left">
+        <div class="section-accent"></div>
+        <div class="section-text">
+          <div class="section-eyebrow">San Antonio Metro</div>
+          <div class="section-heading">Real Estate Market</div>
+        </div>
+      </div>
+      <a href="#" class="section-view-all">All listings →</a>
     </div>
-    <a href="#" class="section-view-all">All listings →</a>
   </div>
 
   <div class="re-stats">
@@ -865,11 +960,16 @@ img { display: block; max-width: 100%; }
 
   <!-- Business Updates -->
   <div class="section-label">
-    <div class="section-label-left">
-      <div class="section-eyebrow">San Antonio Metro</div>
-      <div class="section-heading">Business Updates</div>
+    <div class="section-label-band">
+      <div class="section-label-left">
+        <div class="section-accent"></div>
+        <div class="section-text">
+          <div class="section-eyebrow">San Antonio Metro</div>
+          <div class="section-heading">Business Updates</div>
+        </div>
+      </div>
+      <a href="#" class="section-view-all">All business news →</a>
     </div>
-    <a href="#" class="section-view-all">All business news →</a>
   </div>
 
   <div class="business-grid">
@@ -928,9 +1028,14 @@ img { display: block; max-width: 100%; }
 
   <!-- Civic Updates -->
   <div class="section-label">
-    <div class="section-label-left">
-      <div class="section-eyebrow">San Antonio Metro</div>
-      <div class="section-heading">Civic Updates</div>
+    <div class="section-label-band">
+      <div class="section-label-left">
+        <div class="section-accent"></div>
+        <div class="section-text">
+          <div class="section-eyebrow">San Antonio Metro</div>
+          <div class="section-heading">Civic Updates</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1062,9 +1167,99 @@ img { display: block; max-width: 100%; }
 
   </div>
 
-  <!-- Ad: between civic and newsletter -->
+  <!-- Ad: between civic and events -->
   <div class="ad-strip">
     <broadstreet-zone zone-id="172073"></broadstreet-zone>
+  </div>
+
+  <!-- Events -->
+  <div class="section-label">
+    <div class="section-label-band">
+      <div class="section-label-left">
+        <div class="section-accent"></div>
+        <div class="section-text">
+          <div class="section-eyebrow">San Antonio Metro</div>
+          <div class="section-heading">Upcoming Events</div>
+        </div>
+      </div>
+      <a href="#" class="section-view-all">All events →</a>
+    </div>
+  </div>
+
+  <div class="events-grid">
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-date-month">Apr</div>
+        <div class="event-date-day">18</div>
+      </div>
+      <div class="event-body">
+        <span class="event-badge event-festival">Festival</span>
+        <div class="event-name">Fiesta San Antonio — Opening Night</div>
+        <div class="event-location">Various venues across San Antonio</div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-date-month">Apr</div>
+        <div class="event-date-day">19</div>
+      </div>
+      <div class="event-body">
+        <span class="event-badge event-market">Market</span>
+        <div class="event-name">Mission Reach Farmers Market</div>
+        <div class="event-location">Mission County Park, South Side</div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-date-month">Apr</div>
+        <div class="event-date-day">20</div>
+      </div>
+      <div class="event-body">
+        <span class="event-badge event-arts">Arts</span>
+        <div class="event-name">San Antonio Book Festival</div>
+        <div class="event-location">Central Library & Main Plaza</div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-date-month">Apr</div>
+        <div class="event-date-day">23</div>
+      </div>
+      <div class="event-body">
+        <span class="event-badge event-civic">Public Meeting</span>
+        <div class="event-name">I-35 Expansion Public Hearing</div>
+        <div class="event-location">Henry B. González Convention Center</div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-date-month">Apr</div>
+        <div class="event-date-day">24</div>
+      </div>
+      <div class="event-body">
+        <span class="event-badge event-sports">Sports</span>
+        <div class="event-name">San Antonio FC vs. Rio Grande Valley</div>
+        <div class="event-location">Toyota Field, North Central</div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-date-month">Apr</div>
+        <div class="event-date-day">26</div>
+      </div>
+      <div class="event-body">
+        <span class="event-badge event-arts">Arts</span>
+        <div class="event-name">La Villita Art Show & Night Market</div>
+        <div class="event-location">La Villita Historic Arts Village</div>
+      </div>
+    </div>
+
   </div>
 
   <!-- Newsletter CTA -->
