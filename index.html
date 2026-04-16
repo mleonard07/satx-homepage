@@ -429,26 +429,62 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── Business Updates ── */
-.business-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+.business-carousel {
+  position: relative;
 }
+.business-grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+.business-grid::-webkit-scrollbar { display: none; }
 .business-card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 18px 20px;
+  padding: 20px;
   cursor: pointer;
   transition: box-shadow .2s, transform .2s;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   position: relative;
+  flex: 0 0 calc(25% - 12px);
+  min-width: 220px;
+  scroll-snap-align: start;
+  aspect-ratio: 1 / 1;
 }
 .business-card:hover {
   box-shadow: 0 8px 24px rgba(0,0,0,.07);
   transform: translateY(-1px);
+}
+.biz-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.biz-nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, border-color .15s;
+  color: var(--dark);
+}
+.biz-nav-btn:hover {
+  background: var(--surface);
+  border-color: var(--muted);
 }
 .biz-badge {
   font-size: 10px;
@@ -484,6 +520,13 @@ img { display: block; max-width: 100%; }
   font-weight: 500;
   padding-top: 8px;
   border-top: 1px solid var(--border-light);
+}
+.biz-address {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 /* ── Events ── */
@@ -775,7 +818,7 @@ img { display: block; max-width: 100%; }
   .main-nav { grid-template-columns: auto 1fr; padding: 0 20px; }
   .nav-center { display: none; }
   .page-body { padding: 0 20px 64px; }
-  .business-grid { grid-template-columns: 1fr; }
+  .business-card { flex: 0 0 80vw; }
   .civic-cols { grid-template-columns: 1fr; gap: 24px; }
   .newsletter-band { flex-direction: column; align-items: flex-start; padding: 28px; }
   .nl-form { width: 100%; flex-direction: column; }
@@ -869,50 +912,62 @@ img { display: block; max-width: 100%; }
     <a href="#" class="section-view-all">All business news →</a>
   </div>
 
-  <div class="business-grid">
+  <div class="business-carousel">
+    <div class="business-grid" id="bizCarousel">
 
-    <div class="business-card">
-      <span class="biz-badge biz-new">New Opening</span>
-      <div class="biz-headline">Whataburger opens flagship concept store near The Pearl</div>
-      <div class="biz-blurb">The 4,200 sq ft experiential location features an expanded menu, full bar, and patio overlooking the Museum Reach.</div>
-      <div class="biz-time">2 days ago</div>
+      <div class="business-card">
+        <span class="biz-badge biz-new">Now Open</span>
+        <div class="biz-headline">Whataburger opens flagship concept store near The Pearl</div>
+        <div class="biz-blurb">The 4,200 sq ft experiential location features an expanded menu, full bar, and patio overlooking the Museum Reach.</div>
+        <div class="biz-address">📍 312 E Josephine St, Pearl District</div>
+        <div class="biz-time">2 days ago</div>
+      </div>
+
+      <div class="business-card">
+        <span class="biz-badge biz-expand">Coming Soon</span>
+        <div class="biz-headline">H-E-B breaks ground on new 95,000 sq ft store on Far West Side</div>
+        <div class="biz-blurb">The Westover Hills location is slated to open in fall 2027, adding to six planned openings across the metro.</div>
+        <div class="biz-address">📍 9600 Westover Hills Blvd</div>
+        <div class="biz-time">3 days ago</div>
+      </div>
+
+      <div class="business-card">
+        <span class="biz-badge biz-dev">Renovation</span>
+        <div class="biz-headline">Toyota SA begins $200M plant upgrade for EV Tundra production</div>
+        <div class="biz-blurb">The multi-year renovation will modernize two assembly lines and add 1,200 positions once complete in 2027.</div>
+        <div class="biz-address">📍 1 Toyota Way, South Side</div>
+        <div class="biz-time">8 hours ago</div>
+      </div>
+
+      <div class="business-card">
+        <span class="biz-badge biz-new">Now Open</span>
+        <div class="biz-headline">Frost Bank Tower lands three new tenants totaling 42,000 sqft</div>
+        <div class="biz-blurb">A regional law firm, a fintech company, and a healthcare management group signed leases through 2031.</div>
+        <div class="biz-address">📍 111 W Houston St, Downtown</div>
+        <div class="biz-time">5 days ago</div>
+      </div>
+
+      <div class="business-card">
+        <span class="biz-badge biz-expand">Coming Soon</span>
+        <div class="biz-headline">Southtown food hall to anchor Lone Star Brewery redevelopment</div>
+        <div class="biz-blurb">A 22-vendor food hall will anchor Phase 1 of the long-stalled Lone Star Brewery site, with a projected 2028 opening.</div>
+        <div class="biz-address">📍 514 Lone Star Blvd, Southtown</div>
+        <div class="biz-time">1 week ago</div>
+      </div>
+
+      <div class="business-card">
+        <span class="biz-badge biz-closing">Closing</span>
+        <div class="biz-headline">Denny's closes three San Antonio locations after lease expirations</div>
+        <div class="biz-blurb">The closures affect locations on Broadway, Loop 410, and Bandera Road. The company cited rising occupancy costs.</div>
+        <div class="biz-address">📍 5323 Broadway St</div>
+        <div class="biz-time">4 days ago</div>
+      </div>
+
     </div>
-
-    <div class="business-card">
-      <span class="biz-badge biz-new">New Opening</span>
-      <div class="biz-headline">H-E-B announces new 95,000 sq ft store on Far West Side</div>
-      <div class="biz-blurb">The Westover Hills location is slated to open in fall 2027, adding to six planned openings across the metro.</div>
-      <div class="biz-time">3 days ago</div>
+    <div class="biz-nav">
+      <button class="biz-nav-btn" onclick="document.getElementById('bizCarousel').scrollBy({left:-260,behavior:'smooth'})">←</button>
+      <button class="biz-nav-btn" onclick="document.getElementById('bizCarousel').scrollBy({left:260,behavior:'smooth'})">→</button>
     </div>
-
-    <div class="business-card">
-      <span class="biz-badge biz-jobs">+1,200 Jobs</span>
-      <div class="biz-headline">Toyota SA adds jobs amid EV Tundra ramp-up</div>
-      <div class="biz-blurb">Positions include assembly technicians and quality engineers. Toyota will host a hiring event May 3 at the Southside plant.</div>
-      <div class="biz-time">8 hours ago</div>
-    </div>
-
-    <div class="business-card">
-      <span class="biz-badge biz-expand">Expansion</span>
-      <div class="biz-headline">Frost Bank Tower lands three new tenants totaling 42,000 sqft</div>
-      <div class="biz-blurb">A regional law firm, a fintech company, and a healthcare management group signed leases through 2031.</div>
-      <div class="biz-time">5 days ago</div>
-    </div>
-
-    <div class="business-card">
-      <span class="biz-badge biz-dev">Development</span>
-      <div class="biz-headline">Southtown food hall to anchor Lone Star Brewery redevelopment</div>
-      <div class="biz-blurb">A 22-vendor food hall will anchor Phase 1 of the long-stalled Lone Star Brewery site, with a projected 2028 opening.</div>
-      <div class="biz-time">1 week ago</div>
-    </div>
-
-    <div class="business-card">
-      <span class="biz-badge biz-funding">Funding</span>
-      <div class="biz-headline">Local fintech startup Fiesta Pay raises $8M Series A</div>
-      <div class="biz-blurb">The SA-based payments startup plans to hire 60 engineers and double its footprint at the Geekdom co-working campus.</div>
-      <div class="biz-time">4 days ago</div>
-    </div>
-
   </div>
 
   <!-- Ad: Leaderboard between Business and Civic -->
