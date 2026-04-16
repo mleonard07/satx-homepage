@@ -285,6 +285,9 @@ img { display: block; max-width: 100%; }
 .section-label.section-events { border-top-color: #9f6eac; }
 .section-label.section-events .section-accent { background: #9f6eac; }
 .section-label.section-events .section-eyebrow { color: #9f6eac; }
+.section-label.section-state { border-top-color: var(--red); }
+.section-label.section-state .section-accent { background: var(--red); }
+.section-label.section-state .section-eyebrow { color: var(--red); }
 .section-label-left {
   display: flex;
   align-items: center;
@@ -854,110 +857,6 @@ img { display: block; max-width: 100%; }
 <!-- Page Body -->
 <div class="page-body">
 
-  <!-- Real Estate -->
-  <div class="section-label section-realestate">
-    <div class="section-label-left">
-        <div class="section-accent"></div>
-        <div class="section-text">
-          <div class="section-eyebrow">San Antonio Metro</div>
-          <div class="section-heading">Real Estate Market</div>
-        </div>
-      </div>
-    <a href="#" class="section-view-all">All listings →</a>
-  </div>
-
-  <div class="re-stats">
-    <div class="re-stat">
-      <div class="re-stat-label">Median Sale Price</div>
-      <div class="re-stat-value">$285,400</div>
-      <div class="re-stat-delta delta-down">▼ 2.1% year over year</div>
-    </div>
-    <div class="re-stat">
-      <div class="re-stat-label">Avg. Days on Market</div>
-      <div class="re-stat-value">47</div>
-      <div class="re-stat-delta delta-down">▼ up from 39 last year</div>
-    </div>
-    <div class="re-stat">
-      <div class="re-stat-label">Active Listings</div>
-      <div class="re-stat-value">6,823</div>
-      <div class="re-stat-delta delta-up">▲ 18.4% year over year</div>
-    </div>
-    <div class="re-stat">
-      <div class="re-stat-label">Months of Supply</div>
-      <div class="re-stat-value">4.2</div>
-      <div class="re-stat-delta delta-up">▲ Favors buyers</div>
-    </div>
-  </div>
-  <div class="re-stat-note">Market data updated April 15, 2026</div>
-
-  <div class="listings-grid">
-
-    <div class="listing-card">
-      <div class="listing-photo">
-        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #c8b89a 0%, #a89070 100%);"></div>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">$549,900</div>
-        <div class="listing-address">23104 Overlook Ridge</div>
-        <div class="listing-sub">The Dominion</div>
-        <div class="listing-specs">
-          <span>5 bd</span>
-          <span>4 ba</span>
-          <span>3,840 sqft</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="listing-card">
-      <div class="listing-photo">
-        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #9ab8c8 0%, #708ea8 100%);"></div>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">$385,000</div>
-        <div class="listing-address">18720 Stone Oak Pkwy #204</div>
-        <div class="listing-sub">Stone Oak</div>
-        <div class="listing-specs">
-          <span>4 bd</span>
-          <span>3 ba</span>
-          <span>2,410 sqft</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="listing-card">
-      <div class="listing-photo">
-        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #b8c49a 0%, #8a9870 100%);"></div>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">$267,500</div>
-        <div class="listing-address">412 E Mistletoe Ave</div>
-        <div class="listing-sub">Alamo Heights</div>
-        <div class="listing-specs">
-          <span>3 bd</span>
-          <span>2 ba</span>
-          <span>1,620 sqft</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="listing-card">
-      <div class="listing-photo">
-        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #c8a89a 0%, #a87060 100%);"></div>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">$189,000</div>
-        <div class="listing-address">310 W King William St #7</div>
-        <div class="listing-sub">King William / Downtown</div>
-        <div class="listing-specs">
-          <span>2 bd</span>
-          <span>2 ba</span>
-          <span>1,050 sqft</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
   <!-- Business Updates -->
   <div class="section-label section-business">
     <div class="section-label-left">
@@ -1160,10 +1059,6 @@ img { display: block; max-width: 100%; }
 
   </div>
 
-  <!-- Ad: between civic and events -->
-  <div class="ad-strip">
-    <broadstreet-zone zone-id="172073"></broadstreet-zone>
-  </div>
 
   <!-- Events -->
   <div class="section-label section-events">
@@ -1249,6 +1144,173 @@ img { display: block; max-width: 100%; }
         <div class="event-name">La Villita Art Show & Night Market</div>
         <div class="event-location">La Villita Historic Arts Village</div>
       </div>
+    </div>
+
+  </div>
+
+  <!-- Ad: between events and real estate -->
+  <div class="ad-strip">
+    <broadstreet-zone zone-id="172073"></broadstreet-zone>
+  </div>
+
+  <!-- Real Estate -->
+  <div class="section-label section-realestate">
+    <div class="section-label-left">
+      <div class="section-accent"></div>
+      <div class="section-text">
+        <div class="section-eyebrow">San Antonio Metro</div>
+        <div class="section-heading">Real Estate Market</div>
+      </div>
+    </div>
+    <a href="#" class="section-view-all">All listings →</a>
+  </div>
+
+  <div class="re-stats">
+    <div class="re-stat">
+      <div class="re-stat-label">Median Sale Price</div>
+      <div class="re-stat-value">$285,400</div>
+      <div class="re-stat-delta delta-down">▼ 2.1% year over year</div>
+    </div>
+    <div class="re-stat">
+      <div class="re-stat-label">Avg. Days on Market</div>
+      <div class="re-stat-value">47</div>
+      <div class="re-stat-delta delta-down">▼ up from 39 last year</div>
+    </div>
+    <div class="re-stat">
+      <div class="re-stat-label">Active Listings</div>
+      <div class="re-stat-value">6,823</div>
+      <div class="re-stat-delta delta-up">▲ 18.4% year over year</div>
+    </div>
+    <div class="re-stat">
+      <div class="re-stat-label">Months of Supply</div>
+      <div class="re-stat-value">4.2</div>
+      <div class="re-stat-delta delta-up">▲ Favors buyers</div>
+    </div>
+  </div>
+  <div class="re-stat-note">Market data updated April 15, 2026</div>
+
+  <div class="listings-grid">
+
+    <div class="listing-card">
+      <div class="listing-photo">
+        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #c8b89a 0%, #a89070 100%);"></div>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">$549,900</div>
+        <div class="listing-address">23104 Overlook Ridge</div>
+        <div class="listing-sub">The Dominion</div>
+        <div class="listing-specs">
+          <span>5 bd</span>
+          <span>4 ba</span>
+          <span>3,840 sqft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="listing-photo">
+        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #9ab8c8 0%, #708ea8 100%);"></div>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">$385,000</div>
+        <div class="listing-address">18720 Stone Oak Pkwy #204</div>
+        <div class="listing-sub">Stone Oak</div>
+        <div class="listing-specs">
+          <span>4 bd</span>
+          <span>3 ba</span>
+          <span>2,410 sqft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="listing-photo">
+        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #b8c49a 0%, #8a9870 100%);"></div>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">$267,500</div>
+        <div class="listing-address">412 E Mistletoe Ave</div>
+        <div class="listing-sub">Alamo Heights</div>
+        <div class="listing-specs">
+          <span>3 bd</span>
+          <span>2 ba</span>
+          <span>1,620 sqft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="listing-card">
+      <div class="listing-photo">
+        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #c8a89a 0%, #a87060 100%);"></div>
+      </div>
+      <div class="listing-body">
+        <div class="listing-price">$189,000</div>
+        <div class="listing-address">310 W King William St #7</div>
+        <div class="listing-sub">King William / Downtown</div>
+        <div class="listing-specs">
+          <span>2 bd</span>
+          <span>2 ba</span>
+          <span>1,050 sqft</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- State -->
+  <div class="section-label section-state">
+    <div class="section-label-left">
+      <div class="section-accent"></div>
+      <div class="section-text">
+        <div class="section-eyebrow">Texas</div>
+        <div class="section-heading">State News</div>
+      </div>
+    </div>
+    <a href="#" class="section-view-all">All state news →</a>
+  </div>
+
+  <div class="business-grid">
+
+    <div class="business-card">
+      <span class="biz-badge biz-dev">Legislature</span>
+      <div class="biz-headline">Texas House passes property tax relief package in 88-55 vote</div>
+      <div class="biz-blurb">The bill would raise the homestead exemption from $100K to $140K and cap annual appraisal increases at 5% for primary residences.</div>
+      <div class="biz-time">1 day ago</div>
+    </div>
+
+    <div class="business-card">
+      <span class="biz-badge biz-expand">TxDOT</span>
+      <div class="biz-headline">$4.2B I-35 expansion through Austin advances to final design phase</div>
+      <div class="biz-blurb">The project will add managed lanes from SH 45 to US 290 and is expected to break ground in late 2027.</div>
+      <div class="biz-time">3 days ago</div>
+    </div>
+
+    <div class="business-card">
+      <span class="biz-badge biz-funding">Education</span>
+      <div class="biz-headline">Gov. Abbott signs school choice legislation into law</div>
+      <div class="biz-blurb">The education savings account program, set to launch in fall 2026, provides up to $10,500 per student for private school tuition and expenses.</div>
+      <div class="biz-time">5 days ago</div>
+    </div>
+
+    <div class="business-card">
+      <span class="biz-badge biz-jobs">Workforce</span>
+      <div class="biz-headline">Texas added 38,000 jobs in March, led by healthcare and tech</div>
+      <div class="biz-blurb">The state's unemployment rate held at 4.1%, with the Austin-Round Rock and San Antonio metros accounting for nearly half of new positions.</div>
+      <div class="biz-time">1 week ago</div>
+    </div>
+
+    <div class="business-card">
+      <span class="biz-badge biz-new">Water</span>
+      <div class="biz-headline">TWDB approves $1.1B in low-interest loans for South Texas water projects</div>
+      <div class="biz-blurb">Funding will support new reservoir capacity and pipeline infrastructure serving the San Antonio and Corpus Christi regions through 2050.</div>
+      <div class="biz-time">1 week ago</div>
+    </div>
+
+    <div class="business-card">
+      <span class="biz-badge biz-expand">Energy</span>
+      <div class="biz-headline">ERCOT reports record reserve margins heading into summer</div>
+      <div class="biz-blurb">New solar capacity added since 2024 has pushed available reserves above 20% for the first time, reducing the risk of conservation alerts.</div>
+      <div class="biz-time">2 days ago</div>
     </div>
 
   </div>
