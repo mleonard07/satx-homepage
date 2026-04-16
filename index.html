@@ -656,6 +656,7 @@ img { display: block; max-width: 100%; }
 .civic-tile {
   background: var(--white);
   border: 1px solid var(--border);
+  border-left: 3px solid #429bd3;
   border-radius: 8px;
   padding: 14px 16px;
   cursor: pointer;
@@ -665,7 +666,7 @@ img { display: block; max-width: 100%; }
   gap: 12px;
   align-items: start;
 }
-.civic-tile:hover { box-shadow: 0 4px 12px rgba(0,0,0,.05); border-color: #D1D5DB; }
+.civic-tile:hover { box-shadow: 0 4px 12px rgba(0,0,0,.07); border-left-color: #429bd3; }
 .civic-tile-meta {
   display: flex;
   align-items: center;
@@ -677,7 +678,7 @@ img { display: block; max-width: 100%; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .07em;
-  color: var(--red);
+  color: #429bd3;
 }
 .civic-sep { color: var(--border); }
 .civic-date {
@@ -711,10 +712,10 @@ img { display: block; max-width: 100%; }
   letter-spacing: .03em;
   text-transform: uppercase;
 }
-.status-passed  { background: var(--green-faint);  color: var(--green); }
-.status-pending { background: var(--gold-faint);   color: var(--gold); }
-.status-tabled  { background: var(--surface);      color: var(--muted); border: 1px solid var(--border); }
-.status-active  { background: var(--blue-faint);   color: var(--blue); }
+.status-passed,
+.status-pending,
+.status-tabled,
+.status-active  { background: rgba(66,155,211,0.12); color: #2e7db3; }
 
 /* ── State News ── */
 .state-layout {
