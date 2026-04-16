@@ -398,6 +398,8 @@ img { display: block; max-width: 100%; }
 .listing-photo-inner {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .listing-body { padding: 14px 14px 16px; }
 .listing-price {
@@ -426,6 +428,26 @@ img { display: block; max-width: 100%; }
   font-weight: 500;
   padding-top: 10px;
   border-top: 1px solid var(--border-light);
+  margin-bottom: 12px;
+}
+.listing-view {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--body);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 0;
+  text-decoration: none;
+  transition: background .15s, border-color .15s;
+}
+.listing-view:hover {
+  background: var(--border);
+  border-color: var(--subtle);
 }
 
 /* ── Business Updates ── */
@@ -1236,13 +1258,13 @@ img { display: block; max-width: 100%; }
       <div class="re-stat-delta delta-up">▲ Favors buyers</div>
     </div>
   </div>
-  <div class="re-stat-note">Market data updated April 15, 2026</div>
+  <div class="re-stat-note">Market data updated April 15, 2026 · <span style="color:var(--muted)">Source: Texas A&M Real Estate Research Center</span></div>
 
   <div class="listings-grid">
 
     <div class="listing-card">
       <div class="listing-photo">
-        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #c8b89a 0%, #a89070 100%);"></div>
+        <img class="listing-photo-inner" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=300&fit=crop&auto=format" alt="Home at 23104 Overlook Ridge" />
       </div>
       <div class="listing-body">
         <div class="listing-price">$549,900</div>
@@ -1253,12 +1275,13 @@ img { display: block; max-width: 100%; }
           <span>4 ba</span>
           <span>3,840 sqft</span>
         </div>
+        <a href="#" class="listing-view">View</a>
       </div>
     </div>
 
     <div class="listing-card">
       <div class="listing-photo">
-        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #9ab8c8 0%, #708ea8 100%);"></div>
+        <img class="listing-photo-inner" src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=300&fit=crop&auto=format" alt="Home at 18720 Stone Oak Pkwy" />
       </div>
       <div class="listing-body">
         <div class="listing-price">$385,000</div>
@@ -1269,12 +1292,13 @@ img { display: block; max-width: 100%; }
           <span>3 ba</span>
           <span>2,410 sqft</span>
         </div>
+        <a href="#" class="listing-view">View</a>
       </div>
     </div>
 
     <div class="listing-card">
       <div class="listing-photo">
-        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #b8c49a 0%, #8a9870 100%);"></div>
+        <img class="listing-photo-inner" src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=300&fit=crop&auto=format" alt="Home at 412 E Mistletoe Ave" />
       </div>
       <div class="listing-body">
         <div class="listing-price">$267,500</div>
@@ -1285,12 +1309,13 @@ img { display: block; max-width: 100%; }
           <span>2 ba</span>
           <span>1,620 sqft</span>
         </div>
+        <a href="#" class="listing-view">View</a>
       </div>
     </div>
 
     <div class="listing-card">
       <div class="listing-photo">
-        <div class="listing-photo-inner" style="background: linear-gradient(135deg, #c8a89a 0%, #a87060 100%);"></div>
+        <img class="listing-photo-inner" src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=600&h=300&fit=crop&auto=format" alt="Home at 310 W King William St" />
       </div>
       <div class="listing-body">
         <div class="listing-price">$189,000</div>
@@ -1301,6 +1326,7 @@ img { display: block; max-width: 100%; }
           <span>2 ba</span>
           <span>1,050 sqft</span>
         </div>
+        <a href="#" class="listing-view">View</a>
       </div>
     </div>
 
